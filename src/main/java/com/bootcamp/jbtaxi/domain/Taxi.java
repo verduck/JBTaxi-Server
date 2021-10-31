@@ -1,5 +1,7 @@
 package com.bootcamp.jbtaxi.domain;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,10 +10,8 @@ import javax.persistence.OneToOne;
 
 import lombok.Data;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 @Data
-@RequiredArgsConstructor
 @Entity
 public class Taxi {
   @Id
@@ -24,4 +24,9 @@ public class Taxi {
 
   @NonNull
   private String carNumber;
+
+  private Date waitDate;
+
+  private double latitude;
+  private double longitude;
 }

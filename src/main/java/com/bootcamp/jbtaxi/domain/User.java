@@ -9,12 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 @Data
-@RequiredArgsConstructor
+@Builder
 @Entity
 public class User {
   @Id
@@ -22,7 +22,7 @@ public class User {
   private Integer id;
 
   @NonNull
-  private String phone;
+  private String phoneNumber;
 
   private String name;
   private Date birth;
