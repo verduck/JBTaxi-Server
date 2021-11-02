@@ -1,6 +1,6 @@
 package com.bootcamp.jbtaxi.controller;
 
-import com.bootcamp.jbtaxi.dto.taxi.LocationUpdateRequest;
+import com.bootcamp.jbtaxi.dto.TaxiDTO;
 import com.bootcamp.jbtaxi.service.TaxiService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ public class TaxiController {
     private TaxiService taxiService;
     
     @RequestMapping(value = "/update", method = RequestMethod.PATCH)
-    public void update(@RequestBody LocationUpdateRequest request) {
+    public void update(@RequestBody TaxiDTO request) {
         taxiService.updateLocation(request.getId(), request.getLatitude(), request.getLongitude());
     }
 }

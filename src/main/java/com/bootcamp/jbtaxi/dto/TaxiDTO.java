@@ -1,4 +1,4 @@
-package com.bootcamp.jbtaxi.dto.user;
+package com.bootcamp.jbtaxi.dto;
 
 import org.springframework.stereotype.Component;
 
@@ -10,6 +10,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Component
-public class SignInResponse {
-  private boolean result;
+public class TaxiDTO {
+    private Integer id;
+    private UserDTO user;
+    private String carNumber;
+    private double latitude;
+    private double longitude;
 }

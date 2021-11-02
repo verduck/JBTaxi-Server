@@ -1,6 +1,5 @@
 package com.bootcamp.jbtaxi.service;
 
-import java.util.HashMap;
 import java.util.Optional;
 
 import com.bootcamp.jbtaxi.domain.Taxi;
@@ -13,8 +12,6 @@ import org.springframework.stereotype.Service;
 public class TaxiService {
     @Autowired
     private TaxiRepository taxiRepository;
-
-    private HashMap<String, Taxi> waitingTaxi;
 
     public void updateLocation(int id, double latitude, double longitude) {
         Optional<Taxi> optionalTaxi = taxiRepository.findById(id);

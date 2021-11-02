@@ -1,7 +1,6 @@
 package com.bootcamp.jbtaxi.controller;
 
-import com.bootcamp.jbtaxi.dto.user.SignInRequest;
-import com.bootcamp.jbtaxi.dto.user.SignInResponse;
+import com.bootcamp.jbtaxi.dto.UserDTO;
 import com.bootcamp.jbtaxi.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +16,7 @@ public class UserController {
   private UserService userService;
 
   @RequestMapping(value = "/signin", method = RequestMethod.POST)
-  public @ResponseBody SignInResponse signIn(@RequestBody SignInRequest request) {
-    SignInResponse response = new SignInResponse(true);
-    userService.signIn(request.getPhoneNumber());
-    return response;
+  public @ResponseBody UserDTO signIn(@RequestBody UserDTO request) {
+    return userService.signIn(request.getPhoneNumber());
   }
 }

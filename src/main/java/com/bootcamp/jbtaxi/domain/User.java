@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import lombok.Builder;
@@ -18,7 +17,7 @@ import lombok.NonNull;
 @Entity
 public class User {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
   @NonNull
@@ -29,7 +28,6 @@ public class User {
 
   private String certificationNumber;
 
-  @OneToOne
-  @JoinColumn(name = "taxi_id")
+  @OneToOne(mappedBy = "user")
   private Taxi taxi;
 }

@@ -1,5 +1,7 @@
 package com.bootcamp.jbtaxi.domain;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,28 +12,21 @@ import javax.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Taxi {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
+public class Waiting {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-  @NonNull
-  @OneToOne
-  @JoinColumn(name = "user_id")
-  private User user;
+    @OneToOne
+    @JoinColumn(name = "taxi_id")
+    private Taxi taxi;
 
-  @NonNull
-  private String carNumber;
+    private Date date;
 
-  private double latitude;
-  private double longitude;
-
-  @OneToOne(mappedBy = "taxi")
-  private Waiting waiting;
+    private int maxDistance;
 }
