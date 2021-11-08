@@ -12,15 +12,4 @@ import org.springframework.stereotype.Service;
 public class TaxiService {
     @Autowired
     private TaxiRepository taxiRepository;
-
-    public void updateLocation(int id, double latitude, double longitude) {
-        Optional<Taxi> optionalTaxi = taxiRepository.findById(id);
-        
-        if (optionalTaxi.isPresent()) {
-            Taxi taxi = optionalTaxi.get();
-            taxi.setLatitude(latitude);
-            taxi.setLongitude(longitude);
-            taxiRepository.save(taxi);
-        }
-    }
 }

@@ -28,6 +28,11 @@ public class User {
 
   private String certificationNumber;
 
+	private int maxDistance;
+
   @OneToOne(mappedBy = "user")
   private Taxi taxi;
+
+  @OneToOne(mappedBy = "taxi")
+  private Waiting waiting;
 }

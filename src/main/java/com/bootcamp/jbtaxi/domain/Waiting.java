@@ -18,15 +18,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class Waiting {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
-    @OneToOne
-    @JoinColumn(name = "taxi_id")
-    private Taxi taxi;
+	@OneToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
-    private Date date;
-
-    private int maxDistance;
+	private Date date;
+  private double latitude;
+  private double longitude;
 }

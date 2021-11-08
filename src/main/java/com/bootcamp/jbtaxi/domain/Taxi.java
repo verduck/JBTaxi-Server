@@ -28,10 +28,4 @@ public class Taxi {
 
   @NonNull
   private String carNumber;
-
-  private double latitude;
-  private double longitude;
-
-  @OneToOne(mappedBy = "taxi")
-  private Waiting waiting;
 }
