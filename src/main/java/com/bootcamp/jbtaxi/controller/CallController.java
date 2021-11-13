@@ -15,11 +15,16 @@ public class CallController {
 
   @MessageMapping("/taxi")
   public void callTaxi(@RequestBody WaitingDTO request) {
+    callService.callTaxi(request);
+  }
+
+  @MessageMapping("/wait")
+  public void waitResponse(@RequestBody WaitingDTO request) {
     
   }
 
-  @MessageMapping("/waiting")
-  public void waiting(@RequestBody WaitingDTO request) {
+  @MessageMapping("/update-location")
+  public void updateLocation(@RequestBody WaitingDTO request) {
     
   }
 }

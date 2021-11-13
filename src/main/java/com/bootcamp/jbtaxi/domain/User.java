@@ -33,6 +33,6 @@ public class User {
   @OneToOne(mappedBy = "user")
   private Taxi taxi;
 
-  @OneToOne(mappedBy = "taxi")
+  @OneToOne(mappedBy = "user")
   private Waiting waiting;
 }
