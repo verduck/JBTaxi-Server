@@ -18,21 +18,27 @@ public class UserService {
 	@Autowired
 	private ModelMapper modelMapper;
 
-	public UserDTO signIn(String phoneNumber) {
-		UserDTO userDTO;
-		Optional<User> optionalUser = userRepository.findByPhoneNumber(phoneNumber);
-		User user;
+	public UserDTO signUp(UserDTO userDTO) {
+		UserDTO result;
+
+		User user = modelMapper.map(userDTO, User.class);
+		user = userRepository.save(user);
+
+		result = modelMapper.map(user, UserDTO.class);
+		return result;
+	}
+
+	public UserDTO signIn(UserDTO userDTO) {
+		UserDTO result;
+		Optional<User> optionalUser = userRepository.findByPhoneNumber(userDTO.getPhoneNumber());
+		
 		if (!optionalUser.isPresent()) {
-			user = User.builder()
-			.phoneNumber(phoneNumber)
-			.name(phoneNumber.substring(phoneNumber.length() - 4))
-			.build();
-			
-			userRepository.save(user);
+			User user = optionalUser.get();
+			result = modelMapper.map(user, UserDTO.class);
+			return result;
 		} else {
-			user = optionalUser.get();
+			return null;
 		}
-		userDTO = modelMapper.map(user, UserDTO.class);
-		return userDTO;
+		
 	}
 }

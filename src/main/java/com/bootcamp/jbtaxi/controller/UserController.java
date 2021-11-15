@@ -14,9 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
   @Autowired
   private UserService userService;
+  
+  @RequestMapping(value = "/signup", method = RequestMethod.POST)
+  public @ResponseBody UserDTO signUp(@RequestBody UserDTO request) {
+    return userService.signUp(request);
+  }
 
   @RequestMapping(value = "/signin", method = RequestMethod.POST)
   public @ResponseBody UserDTO signIn(@RequestBody UserDTO request) {
-    return userService.signIn(request.getPhoneNumber());
+    return userService.signIn(request);
   }
 }

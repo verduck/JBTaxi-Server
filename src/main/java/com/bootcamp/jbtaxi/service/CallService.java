@@ -24,9 +24,8 @@ public class CallService {
 		List<Waiting> taxis = waitingRepository.findByUserTaxiIsNotNull();
 		q.addAll(taxis);
 
-		if (q.isEmpty()) {
-			Waiting waiting = modelMapper.map(waitingDTO, Waiting.class);
-			waitingRepository.save(waiting);
+		while (!q.isEmpty()) {
+			Waiting waitingTaxi = q.poll();
 		}
 	}
 }
