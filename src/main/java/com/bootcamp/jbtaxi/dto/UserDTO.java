@@ -1,6 +1,7 @@
 package com.bootcamp.jbtaxi.dto;
 
-import java.util.Date;
+import java.sql.Date;
+import java.time.LocalDate;
 
 import org.springframework.stereotype.Component;
 
@@ -16,6 +17,7 @@ public class UserDTO {
     private Integer id;
     private String phoneNumber;
     private String name;
-    private Date birth;
+    private LocalDate birth;
     private String certificationNumber;
+    private int pass;
 }

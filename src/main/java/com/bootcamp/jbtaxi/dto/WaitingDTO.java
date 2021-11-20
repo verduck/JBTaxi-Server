@@ -1,6 +1,6 @@
 package com.bootcamp.jbtaxi.dto;
 
-import java.util.Date;
+import java.time.LocalTime;
 
 import com.bootcamp.jbtaxi.domain.User;
 
@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class WaitingDTO {
     private Integer id;
     private User user;
-    private Date date;
+    private LocalTime time;
     private double latitude;
     private double longtitude;
 }

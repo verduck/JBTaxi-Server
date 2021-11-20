@@ -1,6 +1,8 @@
 package com.bootcamp.jbtaxi.domain;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,7 +28,7 @@ public class Waiting {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	private Date date;
+	private LocalTime time;
   private double latitude;
   private double longitude;
 }

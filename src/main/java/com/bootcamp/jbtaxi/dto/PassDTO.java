@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Component
-public class TaxiDTO {
-    private Integer id;
-    private UserDTO user;
-    private String name;
-    private String carNumber;
+public class PassDTO {
+  private Integer id;
+  private String name;
+  private int distance;
+  private int price;
 }

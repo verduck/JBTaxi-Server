@@ -19,26 +19,41 @@ public class UserService {
 	private ModelMapper modelMapper;
 
 	public UserDTO signUp(UserDTO userDTO) {
-		UserDTO result;
-
 		User user = modelMapper.map(userDTO, User.class);
 		user = userRepository.save(user);
 
-		result = modelMapper.map(user, UserDTO.class);
-		return result;
+		userDTO = modelMapper.map(user, UserDTO.class);
+		return userDTO;
 	}
 
 	public UserDTO signIn(UserDTO userDTO) {
-		UserDTO result;
 		Optional<User> optionalUser = userRepository.findByPhoneNumber(userDTO.getPhoneNumber());
 		
-		if (!optionalUser.isPresent()) {
+		if (optionalUser.isPresent()) {
 			User user = optionalUser.get();
-			result = modelMapper.map(user, UserDTO.class);
-			return result;
+			userDTO = modelMapper.map(user, UserDTO.class);
 		} else {
-			return null;
+			userDTO.setName(userDTO.getPhoneNumber().substring(userDTO.getPhoneNumber().length() - 4));
+			userDTO = signUp(userDTO);
 		}
 		
+		return userDTO;
+	}
+
+	public UserDTO get(UserDTO userDTO) {
+		return signIn(userDTO);
+	}
+
+	public UserDTO update(UserDTO userDTO) {
+		User user = modelMapper.map(userDTO, User.class);
+		user = userRepository.save(user);
+
+		userDTO = modelMapper.map(user, UserDTO.class);
+		return userDTO;
+	}
+
+	public UserDTO registerCertification(UserDTO userDTO) {
+		// confirm certification number
+		return update(userDTO);
 	}
 }

@@ -6,9 +6,11 @@ import com.bootcamp.jbtaxi.service.CallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/call")
+@RestController
+@RequestMapping("/call")
 public class CallController {
   @Autowired
   private CallService callService;

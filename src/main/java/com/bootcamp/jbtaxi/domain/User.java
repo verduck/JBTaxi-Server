@@ -1,6 +1,6 @@
 package com.bootcamp.jbtaxi.domain;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,12 +8,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class User {
   @Id
@@ -24,10 +28,11 @@ public class User {
   private String phoneNumber;
 
   private String name;
-  private Date birth;
+  private LocalDate birth;
 
   private String certificationNumber;
 
+  private int pass;
 	private int maxDistance;
 
   @OneToOne(mappedBy = "user")
