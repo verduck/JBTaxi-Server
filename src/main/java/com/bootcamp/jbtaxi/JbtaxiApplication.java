@@ -16,11 +16,11 @@ public class JbtaxiApplication {
 
 	@PostConstruct
 	public void createPass() {
-		Pass pass = new Pass("30km 이용권", 30, 33000);
+		Pass pass = new Pass("30km", 30, 33000);
 		passRepository.save(pass);
-		pass = new Pass("50km 이용권", 50, 50000);
+		pass = new Pass("50km", 50, 50000);
 		passRepository.save(pass);
-		pass = new Pass("100km 이용권", 100, 90000);
+		pass = new Pass("100km", 100, 90000);
 		passRepository.save(pass);
 	}
 

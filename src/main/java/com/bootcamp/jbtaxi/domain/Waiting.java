@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Waiting {
+public class Waiting implements Comparable<Waiting> {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -31,4 +31,10 @@ public class Waiting {
 	private LocalTime time;
   private double latitude;
   private double longitude;
+
+	@Override
+	public int compareTo(Waiting o) {
+		// TODO Auto-generated method stub
+		return time.compareTo(o.getTime());
+	}
 }

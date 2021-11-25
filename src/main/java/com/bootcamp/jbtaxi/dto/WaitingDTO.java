@@ -2,8 +2,6 @@ package com.bootcamp.jbtaxi.dto;
 
 import java.time.LocalTime;
 
-import com.bootcamp.jbtaxi.domain.User;
-
 import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
@@ -16,8 +14,8 @@ import lombok.NoArgsConstructor;
 @Component
 public class WaitingDTO {
     private Integer id;
-    private User user;
+    private UserDTO user;
     private LocalTime time;
     private double latitude;
-    private double longtitude;
+    private double longitude;
 }

@@ -20,4 +20,5 @@ public class UserDTO {
     private LocalDate birth;
     private String certificationNumber;
     private int pass;
+    private int maxDistance;
 }

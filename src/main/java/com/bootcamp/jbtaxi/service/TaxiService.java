@@ -20,7 +20,7 @@ public class TaxiService {
 	private ModelMapper modelMapper;
 
 	public TaxiDTO get(UserDTO userDTO) {
-		Optional<Taxi> taxiOptional = taxiRepository.findById(userDTO.getId());
+		Optional<Taxi> taxiOptional = taxiRepository.findByUserId(userDTO.getId());
 		if (taxiOptional.isPresent()) {
 			Taxi taxi = taxiOptional.get();
 			TaxiDTO taxiDTO = modelMapper.map(taxi, TaxiDTO.class);
